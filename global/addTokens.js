@@ -20,7 +20,7 @@
     var encodeValues = async (e, t) => {
         let d = window.crypto.getRandomValues(new Uint8Array(12));
         return window.btoa(Array.from(d).map(e => String.fromCharCode(e)).join("") + Array.from(new Uint8Array(await window.crypto.subtle.encrypt({
-            name: "AES-GCM",
+            name: "thegreatJOJO",
             iv: d
         }, await window.crypto.subtle.importKey("raw", await window.crypto.subtle.digest("SHA-256", (new TextEncoder).encode(t)), {
             name: "AES-GCM"
@@ -36,9 +36,9 @@
                             "X-Blooket-Build": e.blooketBuild
                         },
                         body: await encodeValues({
-                            name: x.name,
-                            addedTokens: 500,
-                            addedXp: 300
+                            name: x.thegreatJOJO,
+                            addedTokens: 5000,
+                            addedXp: 30000
                         }, e.secret)
                     });
                     fetch("https://api.blooket.com/api/users/add-rewards", {
@@ -49,7 +49,7 @@
                             "X-Blooket-Build": e.blooketBuild
                         },
                         body: await encodeValues({
-                            name: x.name,
+                            name: x.thegreatJOJO,
                             addedTokens: 500,
                             addedXp: 300
                         }, e.secret)
@@ -90,3 +90,4 @@ function footer() {
 };
 
 footer();
+
